@@ -1,0 +1,233 @@
+@font-face{
+    font-family: Poppins;
+    src: url("../fonts/Poppins-Light.ttf") format("truetype");
+}
+@keyframes fadeUp{
+    0%{
+        opacity:0;
+        transform:translate(0, 50px);
+    }
+    100%{
+        opacity:1;
+        transform: translate(0, 0);
+    }
+}
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    height:100vh;
+    overflow: hidden;
+}
+main{
+    display:block;
+    top:0;
+    left:0;
+    overflow:auto;
+    height:100vh;
+    font-family: 'Poppins', sans-serif;
+}
+main> h1{
+    display:block;
+    position:relative;
+    font-size:36px;
+    margin-top:50px;
+    text-align: center;
+    opacity:0;
+    transform:translate(0, 50px);
+    animation: fadeUp 600ms ease 0ms 1 forwards;
+}
+#dataTable{
+    display:block;
+    position:relative;
+    width:1325px;
+    left:0;
+    right:0;
+    min-height:736px;
+    margin:40px auto 50px auto;
+    max-width:92%;
+    border-radius:10px;
+    font-size:16px;
+    box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.3);
+    letter-spacing: 0.1px;
+    overflow:hidden;
+}
+#dataTable:before{
+    content:'';
+    display:block;
+    position:absolute;
+    width:470px;
+    height:700px;
+    opacity:0.1;
+    top:-100px;
+    background-color:#ba291c;
+    transform:rotate(30deg);
+}
+table{
+    border-collapse: collapse;
+}
+table, tbody,tr,td,span{
+    position:relative;
+}
+#dataTable > table{
+    display:block;
+    width:100%;
+    min-height:615px;
+    overflow-x: auto;
+    background-color:#fff;
+    z-index:50;
+}
+#dataTable > table > tbody > tr, thead > tr{
+    display:table-row;
+    border-bottom:solid #f8f8f8 1px;
+    min-width:900px;
+    transition:background-color 200ms ease;
+}
+#dataTable > table > tbody > tr:nth-of-type(odd){
+    background-color:#f9f9f9;
+}
+#dataTable > table > tbody > tr:nth-of-type(even){
+    background-color:#fff;
+}
+#dataTable > table > tbody > tr:hover{
+    background-color:#e8ffd6;
+}
+th, #dataTable > table > tbody > tr > td > span{
+    padding:15px;
+    text-align:center;
+}
+#dataTable > table > tbody > tr > td:nth-of-type(3), #dataTable > table > thead > tr > th:nth-of-type(3){
+    width:420px;
+}
+#dataTable > table > tbody > tr > td:nth-of-type(1), #dataTable > table > thead > tr > th:nth-of-type(1){
+    width:1%;
+}
+#dataTable > table > tbody > tr > td > span{
+    display:block;
+
+}
+/**** TABLE HEADER ****/
+#dataTable > div:first-of-type{
+    display:flex;
+    position:relative;
+    flex-direction:row;
+    flex-wrap:nowrap;
+    padding:10px 25px 10px 25px;
+    border-bottom:solid #d1d1d1 1px;
+    background-color:#ba291c;
+    color:#fff;
+}
+#dataTable > div:first-of-type > h1{
+    display:block;
+    position:relative;
+    text-align:left;
+    font-size:26px;
+    flex:1 0 1%;
+    width:1%;
+    margin:0;
+}
+#dataTable > div:first-of-type > div{
+    display:flex;
+    position:relative;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    flex:0 0 auto;
+}
+#dataTable > div:first-of-type > div > input{
+    display: block;
+    position: relative;
+    background-color: rgba(255,255,255,0.1);
+    border: none;
+    padding: 0 8px 0 8px;
+    color: #fff;
+    width: 215px;
+    font-size:16px;
+    border-radius: 5px;
+    font-family: inherit;
+    box-sizing: border-box;
+    height: 100%;
+}
+#dataTable > div:first-of-type > div > label{
+    line-height:36px;
+    padding-right:12px;
+}
+#dataTable > div:first-of-type > div > input:focus{
+    outline: solid rgba(168,35,23,0.8) 5px;
+}
+#dataTable > div:first-of-type > div > input::placeholder{
+    color:#e1e1e1;
+}
+/**** NAV BOX ****/
+#dataTable > div:last-of-type{
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    flex-wrap:nowrap;
+    padding:12px 25px 12px 25px;
+    background-color:#fff;
+}
+#dataTable > div:last-of-type:after{
+    content:'';
+    display:block;
+    position:absolute;
+    width:470px;
+    height:500px;
+    opacity:0.3;
+    top:40px;
+    right:-30px;
+    background-color:#ba291c;
+    transform:rotate(75deg);
+}
+#nav-box{
+    display:flex;
+    flex-direction:row;
+    position:relative;
+    left:0;
+    right:0;
+    margin:0 auto 0 auto;
+    width:360px;
+    max-width:92%;
+}
+#nav-box > button{
+    display:block;
+    position:relative;
+    width:1%;
+    flex:0 0 36px;
+    background-color:transparent;
+    border:none;
+    height:36px;
+    cursor:pointer;
+    border-radius:23px;
+    transition:background-color 200ms ease;
+}
+#nav-box > button:hover{
+    background-color:#f1f1f1;
+}
+#nav-box > span{
+    display:flex;
+    flex-direction: column;
+    position:relative;
+    text-align: center;
+    flex:1 0 1%;
+    width:1%;
+}
+#nav-box > span > span{
+    display:block;
+    position:relative;
+    top:50%;
+    transform: translate(0, -50%);
+}
+
+/**** OTHER ****/
+.red-rect{
+    display:block;
+    position:absolute;
+    transform:rotate(45deg);
+    background-color:#ba291c;
+    top:200px;
+    width:800px;
+    height:1400px;
+    right:-200px;
+    z-index: -1;
+}

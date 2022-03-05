@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<main>
+    <h1>DMV Appointments Scheduler</h1>
+    <div id="dataTable">
+        <div><h1>DMV Appointments</h1> <div><label for="searchBox">Search:</label><input id="searchBox" type="text" placeholder="Search..." name="userSearch" autocomplete="off"/></div></div>
+        <table>
+            <thead>
+            <tr>
+                <th>Teller Id</th>
+                <th>Customer Id</th>
+                <th>Time Frame</th>
+                <th>Duration</th>
+                <th>Teller Specialty Type</th>
+                <th>Customer Service Type</th>
+            </tr>
+            </thead>
+            <tbody id="tableHeader"></tbody>
+        </table>
+        <div>
+            <div id="nav-box">
+                <button><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" /><path fill="#787878" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/></svg></button>
+                <span><span></span></span>
+                <button><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path fill="#787878" d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"/></svg></button>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="red-rect"></div>
+    <script type="text/javascript" src="js/core.js"></script>
+</body>
+</html>
