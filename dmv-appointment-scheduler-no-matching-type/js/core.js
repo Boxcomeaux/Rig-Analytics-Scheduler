@@ -91,7 +91,7 @@ window.addEventListener('DOMContentLoaded', function(){
                     let time = new Date((Date.now() + (repeat * (maxSeparation * 1000 * 60))));
                     for(let i = 0; i < customerDataLength;i++){
                         let valid = false;
-                        while(count < customerDataLength && !valid){
+                        while(loop < tellerDataLength && !valid){
                             if(tellerData[loop].SpecialtyType){
                                 if(customerData[i].type){
                                     if(customerData[i].type !== tellerData[loop].SpecialtyType){
