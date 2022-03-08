@@ -13,7 +13,6 @@ let appointmentMax = 0;
 const openTime = 7; // MILITARY TIME OPEN TIME 7:00 AM
 const closingTime = (4) + 12; // MILITARY TIME CLOSING TIME 5:00 PM, LEAVE AN HOUR FOR ONE LAST MEETING
 let updateTime = new Date(Date.now());
-let multiplierOption = false;
 window.addEventListener('DOMContentLoaded', function(){
     const table = document.getElementById('tableHeader');
 
@@ -88,7 +87,6 @@ window.addEventListener('DOMContentLoaded', function(){
                     const customerDataLength = customerData.length;
                     const tellerDataLength = tellerData.length;
                     appointmentMax = Math.ceil(customerDataLength / tellerDataLength);
-
                     let count = 0;
                     let repeat = 0;
                     let time = new Date((Date.now() + (repeat * (maxSeparation * 1000 * 60))));
@@ -97,6 +95,7 @@ window.addEventListener('DOMContentLoaded', function(){
                         let loop = 0;
                         while(loop < tellerDataLength && !valid){
                             let inLoop = 0;
+                            updateTime = new Date(Date.now());
                             if(tellerData[loop].SpecialtyType){
                                 if(customerData[i].type){
                                     while(inLoop < appointmentMax && count < customerDataLength){
@@ -117,13 +116,13 @@ window.addEventListener('DOMContentLoaded', function(){
                                         time = new Date((updateTime + (loop * (maxSeparation * 1000 * 60))));
                                         let meridian = time.getHours() / 12 >= 1 ? 'PM' : 'AM';
                                         let hours = time.getHours() > 12 ? time.getHours() - 12 : time.getHours();
-                                        const formatDate = time.getMonth() + '/' + time.getDate() + '/' + time.getFullYear() + ' ' + hours + ':' + String(time.getMinutes()).padStart(2, "0") + ':' + meridian;
+                                        const formatDate = (time.getMonth() + 1) + '/' + time.getDate() + '/' + time.getFullYear() + ' ' + hours + ':' + String(time.getMinutes()).padStart(2, "0") + ':' + meridian;
 
                                         //END DATE
                                         time = new Date(time.getTime() + (Number(customerData[count].duration) * 1000 * 60));
                                         meridian = time.getHours() / 12 >= 1 ? 'PM' : 'AM';
                                         hours = time.getHours() > 12 ? time.getHours() - 12 : time.getHours();
-                                        const formatAddedTime = time.getMonth() + '/' + time.getDate() + '/' + time.getFullYear() + ' ' + hours + ':' + String(time.getMinutes()).padStart(2, "0") + ':' + meridian;
+                                        const formatAddedTime = (time.getMonth() + 1) + '/' + time.getDate() + '/' + time.getFullYear() + ' ' + hours + ':' + String(time.getMinutes()).padStart(2, "0") + ':' + meridian;
                                         const resObj = {
                                             tellerId:tellerData[loop].ID,
                                             customerId: customerData[count].Id,
@@ -154,7 +153,6 @@ window.addEventListener('DOMContentLoaded', function(){
                             }
                             loop++;
                         }
-                        count++;
                     }
 
                     // SET THE MAXIMUM NUMBER OF PAGES TO CYCLE THROUGH THE TABLE AND THE NEWLY UPDATED LENGTHS OF EACH
